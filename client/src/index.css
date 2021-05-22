@@ -1,0 +1,47 @@
+/* scroll bar styles  */
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: teal;
+}
+
+.form-container {
+  width: 500px;
+  margin: auto;
+}
+.ui.teal.button:focus,
+.ui.teal.buttons .button:focus {
+  background-color: #00b5ad;
+}
+
+.ui.teal.large.pointing.secondary.menu {
+  background-color: white;
+}
+
+.post-form {
+  position: fixed !important;
+  width: 400px !important;
+}
+
+@media (max-width: 768px) {
+  .post-form {
+    position: relative !important;
+  }
+}
+@media (max-width: 992px) {
+  .post-form {
+    position: relative !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .post-form {
+    width: 300px !important;
+  }
+}

@@ -30,17 +30,20 @@ module.exports = gql`
   }
   input RegisterInput {
     username: String!
+    email: String!
     password: String!
     confirmPassword: String!
-    email: String!
   }
   input LoginInput {
     username: String!
     password: String!
   }
+
   type Query {
     getPosts: [Post]
     getPost(postId: ID!): Post
+    getPostsByUser(userId: ID!): [Post]
+    getUserCount: Int!
   }
   type Mutation {
     register(registerInput: RegisterInput): User!

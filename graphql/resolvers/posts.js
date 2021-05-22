@@ -1,9 +1,18 @@
 const { AuthenticationError } = require('apollo-server');
 
 const Post = require('../../models/Post');
+const User = require('../../models/User');
 const checkAuth = require('../../util/middleware/auth');
 module.exports = {
   Query: {
+    async getUserCount() {
+      try {
+        const userCount = await User.countDocuments();
+        return userCount;
+      } catch (error) {
+        throw new Error('Something went wrong');
+      }
+    },
     //get all posts
     async getPosts() {
       try {
@@ -25,6 +34,18 @@ module.exports = {
         }
       } catch (error) {
         throw new Error(error);
+      }
+    },
+    async getPostsByUser(_, { userId }) {
+      try {
+        const posts = await Post.find({ user: userId });
+        if (posts) {
+          return posts;
+        } else {
+          throw new Error("can't get posts of this user");
+        }
+      } catch (error) {
+        throw new Error();
       }
     },
   },
