@@ -9,7 +9,7 @@ import { setContext } from 'apollo-link-context';
 import { AuthProvider } from './context/auth';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:5000',
+  uri: 'https://obscure-gorge-76941.herokuapp.com/',
 });
 
 const authLink = setContext(() => {

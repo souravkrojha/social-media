@@ -8,9 +8,17 @@ const server = new ApolloServer({
   resolvers,
   context: ({ req }) => ({ req }),
 });
+
+const PORT = process.env.NODE_ENV || 5000;
+
 //connecting mongodb
 connectDB();
 // starting server
-server.listen({ port: 5000 }).then((res) => {
-  console.log(`server running at ${res.url}`);
-});
+server
+  .listen({ port: PORT })
+  .then((res) => {
+    console.log(`server running at ${res.url}`);
+  })
+  .catch((err) => {
+    console.error(err);
+  });

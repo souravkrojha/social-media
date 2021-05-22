@@ -18,7 +18,9 @@ const LikeButton = ({ post: { id, likes, likeCount }, user, history }) => {
   });
 
   const likePostHandler = () => {
-    likePost();
+    if (user) {
+      likePost();
+    }
   };
 
   const likeButton = user ? (
@@ -42,17 +44,7 @@ const LikeButton = ({ post: { id, likes, likeCount }, user, history }) => {
         content={liked ? 'unlike' : 'like'}
         inverted
         trigger={
-          <Button
-            as="div"
-            labelPosition="right"
-            onClick={
-              user
-                ? likePostHandler
-                : () => {
-                    window.location = '/login';
-                  }
-            }
-          >
+          <Button as="div" labelPosition="right" onClick={likePostHandler}>
             {likeButton}
 
             <Label basic color="teal" pointing="left">

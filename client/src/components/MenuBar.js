@@ -14,7 +14,6 @@ function MenuBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
   const logOutHandler = () => {
     logout();
-    window.location = '/';
   };
 
   const menuBar = user ? (
